@@ -10,13 +10,10 @@ export class ApiService {
     private http: HttpClient,
   ) { }
   searchCocktail(query: string) {
-    const url = `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=margarita`;
-    const headers = new HttpHeaders({
-      Authorization:
-        'Bearer'
-    })
+    const url = `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${query}`;
+   
 
-    let obsCocktail = this.http.get(url, { headers });
+    let obsCocktail = this.http.get(url);
     return obsCocktail
   }
 }
